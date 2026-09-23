@@ -1,0 +1,116 @@
+.carousel {
+    --items-to-display: 5;
+    --gap: 16px;
+    --item-width: calc((100% - var(--items-to-display, 5) * var(--gap, 0)) / (var(--items-to-display, 5) + 0.5));
+
+    list-style-type: none;
+
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--gap);
+
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    grid-auto-columns: var(--item-width);
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+
+    anchor-name: var(--carousel-anchor);
+
+    scroll-marker-group: after;
+}
+
+.carousel::after {
+    content: "";
+    /* --n: 5;
+    grid-column: span var(--n); */
+}
+
+.carousel::scroll-button(*) {
+    border: 0;
+    font-size: 2rem;
+    background: none;
+    color: black;
+    opacity: 0.7;
+    cursor: pointer;
+
+    position: absolute;
+    position-anchor: var(--carousel-anchor);
+}
+
+.carousel::scroll-button(*):hover,
+.carousel::scroll-button(*):focus {
+    opacity: 1;
+}
+
+.carousel::scroll-button(*):active {
+    translate: 1px 1px;
+}
+
+.carousel::scroll-button(*):disabled {
+    opacity: 0.2;
+    cursor: unset;
+}
+
+.carousel::scroll-button(left) {
+    content: "◄" / "Previous";
+
+    position-area: center;
+    justify-self: start;
+}
+
+.carousel::scroll-button(right) {
+    content: "►" / "Next";
+
+    position-area: center;
+    justify-self: end;
+}
+
+.carousel::scroll-marker-group {
+    position: absolute;
+    position-anchor: var(--carousel-anchor);
+    top: calc(anchor(bottom) + 10px);
+    justify-self: anchor-center;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.carouselItem:nth-of-type(5n+1) {
+    scroll-snap-align: start;
+}
+
+.carouselItem:nth-of-type(5n+1)::scroll-marker {
+    content: "" / attr(data-accname);
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.carouselItem::scroll-marker:target-current {
+    background-color: black;
+}
+
+.carousel a {
+    text-decoration: none;
+
+    &,
+    &:visited {
+        color: black;
+    }
+}

@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+const { pathname } = Astro.url;
+const segments = pathname.split("/").filter(Boolean);
+
+const crumbs = segments.map((slug, index) => {
+    const href = `/${segments.slice(0, index + 1).join("/")}`;
+    const label = slug
+        .replace(/-/g, " ")
+        .replace(/^./, (str) => str.toUpperCase());
+    return { href, label };
+});
+---
+
+<nav id="breadcrumbs">
+    <ol>
+        <li><a href="/">Home</a></li>
+        {
+            crumbs.map((crumb, index) => {
+                const isLast = index === crumbs.length - 1;
+                return (
+                    <li>
+                        {isLast ? (
+                            <span>{crumb.label}</span>
+                        ) : (
+                            <a href={crumb.href}>{crumb.label}</a>
+                        )}
+                    </li>
+                );
+            })
+        }
+    </ol>
+</nav>
+
+<style>
+    #breadcrumbs {
+        ol {
+            display: flex;
+        }
+
+        li {
+            list-style: none;
+
+            &:not(:first-child):before {
+                content: ">>";
+                padding: 0 6px;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a,
+        a:visited {
+            color: #0000ff;
+        }
+    }
+</style>

@@ -1,0 +1,57 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import { getCollection } from "astro:content";
+import Carousel from "@components/Carousel/Carousel";
+
+const productCollection = await getCollection("products");
+const products = productCollection.map((product) => product.data);
+
+const newProducts = products.slice(3, 15);
+const featured = products.slice(9, 30);
+const category = products.slice(50, 75);
+---
+
+<BaseLayout title="Cook Pro">
+  <Hero />
+  <div class="previews">
+    <div class="preview-heading">
+      <h2>New Arrivals</h2>
+      <a href="">View All</a>
+    </div>
+    <Carousel products={newProducts} />
+  </div>
+  <div class="previews">
+    <div class="preview-heading">
+      <h2>Featured</h2>
+      <a href="">View All</a>
+    </div>
+    <Carousel products={featured} />
+  </div>
+  <div class="previews">
+    <div class="preview-heading">
+      <h2>Shop By Category</h2>
+      <a href="">View All</a>
+    </div>
+    <Carousel products={category} />
+  </div>
+</BaseLayout>
+
+<style>
+  .previews {
+    background-color: #f5f5f5;
+    padding: 16px;
+    padding-bottom: 32px;
+    border-radius: 8px;
+
+    &:not(:first-of-type) {
+      margin-top: 32px;
+    }
+  }
+
+  .preview-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+</style>

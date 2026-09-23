@@ -1,0 +1,17 @@
+.product {
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    background-color: white;
+
+    img {
+        inline-size: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+
+    div {
+        padding: 8px;
+    }
+}

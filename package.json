@@ -1,0 +1,39 @@
+{
+  "name": "cookpro site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.17.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "dependencies": {
+    "@astrojs/react": "^6.0.5",
+    "@lucide/astro": "^1.28.0",
+    "astro": "^7.3.1",
+    "csv-parse": "^7.0.2",
+    "lucide-react": "^1.42.0",
+    "minisearch": "^7.2.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  }
+}

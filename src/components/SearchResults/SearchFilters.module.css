@@ -1,0 +1,36 @@
+.filters {
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    max-width: 350px;
+    padding: 16px;
+    align-self: flex-start;
+    margin-top: 64px;
+
+    box-shadow:
+        0 7px 14px rgba(60, 66, 87, 0.1),
+        0 3px 6px rgba(0, 0, 0, 0.08);
+
+    >div {
+        padding-top: 16px;
+        border-top: 1px solid lightgrey;
+        margin-top: 16px;
+    }
+
+    label {
+        display: flex;
+        gap: 8px;
+    }
+
+    span {
+        margin-left: auto;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        margin-top: 16px;
+    }
+}

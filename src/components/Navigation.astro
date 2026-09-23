@@ -1,0 +1,61 @@
+---
+import Dropdown from "@components/NavDropdown.astro";
+---
+
+<nav class="navbar">
+  <ul class="nav-list">
+    <li>
+      <Dropdown
+        label="Products"
+        links={[
+          { label: "Cleaning", href: "/search?categories=cleaning" },
+          { label: "Hydration", href: "/search?categories=hydration" },
+          { label: "Utensils", href: "/search?categories=utensils" },
+          { label: "Cookware", href: "/search?categories=cookware" },
+        ]}
+      />
+    </li>
+    <li>
+      <Dropdown
+        label="Brands"
+        links={[
+          { label: "Cook Pro", href: "/search?brand=cook+pro" },
+          { label: "Clean Pro", href: "/search?brand=clean+pro" },
+          { label: "HydroSteel", href: "/search?brand=hydrosteel" },
+          { label: "ExcelSteel", href: "/search?brand=excelsteel" },
+          { label: "Cooks On Fire", href: "/search?brand=cooks+on+fire" },
+        ]}
+      />
+    </li>
+    <li><a href="/search?tag=new">New Arrivals</a></li>
+    <li><a href="/search?tag=featured">Featured</a></li>
+    <li><a href="/products">Catalog</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+<style>
+  .nav-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 16px;
+
+    list-style-type: none;
+
+    li > a {
+      display: block;
+      text-decoration: none;
+      padding: 15px 20px;
+
+      &,
+      &:visited {
+        color: #0a0a0a;
+      }
+    }
+
+    li .dropdown {
+      margin-inline: 16px;
+    }
+  }
+</style>

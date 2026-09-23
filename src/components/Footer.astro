@@ -1,0 +1,120 @@
+<footer>
+  <div id="company-logos">
+    <a href="/cookpro"><img src="/CookPro.png" /></a>
+    <a href="/cleanpro"><img src="/CleanPro.png" /></a>
+    <a href="/excelsteel"><img src="/ExcelSteel.png" /></a>
+    <a href="/hydrosteel"><img src="/HydroSteel.png" /></a>
+  </div>
+  <div id="doormat">
+    <div id="doormat-navigation">
+      <div id="doormat-column">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="">Cookware</a></li>
+          <li><a href="">Drinkware</a></li>
+          <li><a href="">Specialty Cookware</a></li>
+          <li><a href="">Storage and Organization</a></li>
+          <li><a href="">Utensils and Gadgets</a></li>
+          <li><a href="">Clean Pro</a></li>
+        </ul>
+      </div>
+      <div id="doormat-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="">About Us</a></li>
+          <li><a href="">Contact Us</a></li>
+          <li><a href="">Catalog</a></li>
+          <li><a href="">Where to Buy</a></li>
+        </ul>
+      </div>
+      <div id="doormat-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="">Care & Use</a></li>
+          <li><a href="">Product Care</a></li>
+          <li><a href="">FAQ</a></li>
+        </ul>
+      </div>
+      <div id="doormat-column">
+        <h3>Stay Updated</h3>
+        <p>Get the latest product news and updates.</p>
+        <input placeholder="Enter your email" />
+        <button>Subscribe</button>
+      </div>
+    </div>
+    <hr />
+    <div id="copyright">
+      <p>
+        &copy; {new Date().getFullYear()} Cook Pro, Inc. All rights reserved.
+      </p>
+      <div id="legal">
+        <a href="">Privacy Policy</a>
+        <a href="">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  #company-logos {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+
+    img {
+      width: 250px;
+      height: 100px;
+      object-fit: contain;
+    }
+  }
+
+  #doormat {
+    background-color: #1c1c1c;
+    color: white;
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a,
+    a:visited {
+      color: #dbdbdb;
+    }
+  }
+
+  #doormat-navigation {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  #doormat-column {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+  }
+
+  hr {
+    width: 80%;
+    margin: 0 auto;
+    border: none;
+    height: 1px;
+    background-color: white;
+    margin-bottom: 16px;
+  }
+
+  #copyright {
+    display: flex;
+    padding: 0 10%;
+    justify-content: space-between;
+  }
+
+  #legal {
+    display: flex;
+    gap: 10px;
+  }
+</style>

@@ -1,0 +1,64 @@
+---
+import Navigation from "@components/Navigation.astro";
+import SearchBar from "@components/SearchBar/SearchBar";
+import { MapPin } from "@lucide/astro";
+---
+
+<header>
+  <div id="top-ribbon">
+    <div class="address">
+      <MapPin size={16} stroke-width={2} />
+      <p>1885 Iowa Ave. Riverside, CA 92507</p>
+    </div>
+    <p>Open 8AM-5PM</p>
+  </div>
+  <div id="primary-ribbon">
+    <a href="/" id="main-logo">
+      <img src="/CookPro.png" alt="CookPro Logo" />
+    </a>
+    <Navigation />
+    <SearchBar client:load />
+  </div>
+</header>
+
+<style>
+  header {
+    border-bottom: 1px solid lightgrey;
+  }
+
+  #top-ribbon {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+
+    background-color: #9a1415;
+    color: #dbdbdb;
+    border-bottom: 1px solid #6c181d;
+
+    padding-right: 16px;
+
+    .address {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  #primary-ribbon {
+    display: flex;
+    align-items: center;
+    margin-inline: 16px;
+
+    #main-logo {
+      min-width: 200px;
+      max-width: 300px;
+
+      img {
+        object-fit: contain;
+      }
+    }
+
+    .navbar {
+      flex-grow: 1;
+    }
+  }
+</style>

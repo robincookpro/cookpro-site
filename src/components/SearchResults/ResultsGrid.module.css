@@ -1,0 +1,45 @@
+.results {
+    flex-grow: 1;
+}
+
+.heading {
+    display: flex;
+
+    span {
+        margin-left: auto;
+    }
+
+    align-items: center;
+
+    select {
+        margin-left: 0.5rem;
+    }
+}
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+
+    a {
+        text-decoration: none;
+    }
+
+    a:link,
+    a:visited {
+        color: inherit;
+    }
+
+    &>a>article {
+        align-self: stretch;
+        height: 100%;
+        box-shadow:
+            0 7px 14px rgba(60, 66, 87, 0.1),
+            0 3px 6px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.pagination {
+    justify-self: center;
+    margin-top: 16px;
+}

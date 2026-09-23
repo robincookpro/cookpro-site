@@ -1,0 +1,81 @@
+---
+interface Props {
+    label: string;
+    links: { label: string; href: string }[];
+}
+
+const { label, links } = Astro.props;
+
+const dropdownId = `dropdown-${crypto.randomUUID()}`;
+---
+
+<div class="dropdown">
+    <button class="dropdown-trigger" popovertarget={dropdownId}>
+        {label}
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chevron-down icon"
+        >
+            <path d="m6 9 6 6 6-6"></path>
+        </svg>
+    </button>
+
+    <div class="dropdown-menu" id={dropdownId} popover>
+        {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </div>
+</div>
+
+<style>
+    .dropdown-trigger {
+        background: none;
+        border: none;
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+        outline: inherit;
+
+        display: flex;
+        align-content: center;
+
+        .icon {
+            transition: transform 0.3s ease;
+        }
+
+        &:has(+ .dropdown-menu:popover-open) .icon {
+            transform: rotate(180deg);
+        }
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        position-area: bottom span-right;
+
+        a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        a,
+        a:visited {
+            color: #0a0a0a;
+        }
+    }
+
+    .dropdown-menu:popover-open {
+        display: flex;
+        flex-direction: column;
+        /* gap: 8px; */
+
+        border: 1px solid lightgrey;
+        border-radius: 6px;
+    }
+</style>

@@ -1,0 +1,158 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import type { Product } from "@ts/product.types";
+
+export async function getStaticPaths() {
+    const collection = await getCollection("products");
+    const products = collection.map(({ data }) => data);
+
+    return products.map((product) => ({
+        params: { sku: product.sku },
+
+        props: { product },
+    }));
+}
+
+type Props = {
+    product: Product;
+};
+
+const { sku } = Astro.params;
+const { product } = Astro.props;
+---
+
+<BaseLayout title={product.name}>
+    <div class="product-page">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src={product.imageUrl[0]} />
+            </div>
+        </div>
+
+        <div class="product-info">
+            <div class="product-description">
+                <h1>{product.name}</h1>
+                <h2>SKU: {sku}</h2>
+                <p>
+                    {product.description}
+                </p>
+            </div>
+
+            <div class="product-features">
+                <h3>Professional Features</h3>
+                <ul>
+                    {product.bullets.map((bullet) => <li>{bullet}</li>)}
+                </ul>
+            </div>
+
+            <div class="product-brand">
+                <h3>Brand</h3>
+                <p>{product.brand}</p>
+            </div>
+
+            <div class="product-collections">
+                <h3>Collections</h3>
+                <div class="product-collections-chips">
+                    {
+                        product.categories.map((category) => (
+                            <a href={`/search?categories=${category}`}>
+                                {category}
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .product-page {
+        justify-self: center;
+
+        max-width: 80%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+
+        padding: 64px;
+    }
+
+    .product-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .main-image {
+        overflow: hidden;
+        border-radius: 6px;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    .thumbnail {
+        display: flex;
+        gap: 16px;
+    }
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .product-description {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        h2 {
+            font-size: 1.25em;
+        }
+    }
+
+    .product-details {
+    }
+
+    .product-features {
+        ul {
+            padding-inline-start: 1.25rem;
+        }
+    }
+
+    .product-brand {
+        p {
+            text-transform: capitalize;
+        }
+    }
+
+    .product-collections {
+    }
+
+    .product-collections-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .product-collections a {
+        border: 1px solid black;
+        border-radius: 9999px;
+        background-color: lightgrey;
+        padding-inline: 8px;
+
+        text-decoration: none;
+        text-transform: capitalize;
+
+        & {
+            color: inherit;
+        }
+    }
+</style>

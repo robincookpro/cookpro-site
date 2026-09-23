@@ -1,0 +1,85 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contact Us">
+    <div class="support">
+        <h1>Contact us</h1>
+        <p>Get in touch and let us know how we can help.</p>
+        <div class="contacts">
+            <div class="contact">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-phone preview-icon"
+                >
+                    <path
+                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                    >
+                    </path>
+                </svg>
+                <h2>Talk to our customer service</h2>
+                <p>Chat with a member of our team</p>
+                <p>+1 951 xxx xxxx</p>
+            </div>
+            <div class="contact">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-message-circle-more preview-icon"
+                >
+                    <path
+                        d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+                    >
+                    </path>
+                    <path d="M8 12h.01"></path>
+                    <path d="M12 12h.01"></path>
+                    <path d="M16 12h.01"></path>
+                </svg>
+                <h2>Contact us by email</h2>
+                <p>No time to talk? Email us instead</p>
+                <p>support@cook-pro.com</p>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .support {
+        justify-self: center;
+        font-size: 1.125rem;
+    }
+
+    .contacts {
+        display: flex;
+        gap: 16px;
+        margin-top: 16px;
+
+        > * {
+            flex: 1 1 0;
+        }
+    }
+
+    .contact {
+        padding: 16px;
+        border-radius: 4px;
+        /* border: 1px solid black; */
+        box-shadow:
+            0 7px 14px rgba(60, 66, 87, 0.1),
+            0 3px 6px rgba(0, 0, 0, 0.08);
+    }
+</style>

@@ -1,0 +1,5 @@
+.searchResults {
+    display: flex;
+    gap: 64px;
+    margin: 32px;
+}
