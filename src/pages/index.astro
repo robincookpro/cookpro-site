@@ -19,21 +19,21 @@ const category = products.slice(50, 75);
       <h2>New Arrivals</h2>
       <a href="">View All</a>
     </div>
-    <Carousel products={newProducts} />
+    <Carousel products={newProducts} client:load />
   </div>
   <div class="previews">
     <div class="preview-heading">
       <h2>Featured</h2>
       <a href="">View All</a>
     </div>
-    <Carousel products={featured} />
+    <Carousel products={featured} client:load />
   </div>
   <div class="previews">
     <div class="preview-heading">
       <h2>Shop By Category</h2>
       <a href="">View All</a>
     </div>
-    <Carousel products={category} />
+    <Carousel products={category} client:load />
   </div>
 </BaseLayout>
 
